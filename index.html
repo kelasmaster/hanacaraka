@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="jv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hanacaraka Keyboard (Symbol)</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #ffcc00;
+    }
+    .output {
+      min-height: 100px;
+      background: #222;
+      border: 2px solid #555;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+    .keyboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+      gap: 10px;
+      justify-items: center;
+      margin-bottom: 20px;
+    }
+    .key {
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      background: #fff;
+      border-radius: 6px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    button {
+      background: #ffcc00;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>⌨️ Hanacaraka Keyboard (Symbol)</h1>
+
+  <div class="output" id="output"></div>
+
+  <div class="keyboard" id="keyboard">
+    <!-- Basic Hanacaraka: Replace src with your own image URLs -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Jawa_Ha.png/48px-Jawa_Ha.png" class="key" data-name="ha" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Jawa_Na.png/48px-Jawa_Na.png" class="key" data-name="na" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Jawa_Ca.png/48px-Jawa_Ca.png" class="key" data-name="ca" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Jawa_Ra.png/48px-Jawa_Ra.png" class="key" data-name="ra" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Jawa_Ka.png/48px-Jawa_Ka.png" class="key" data-name="ka" />
+    <!-- Add more characters as needed -->
+  </div>
+
+  <div class="buttons">
+    <button onclick="clearOutput()">Clear</button>
+    <button onclick="copyOutput()">Copy</button>
+  </div>
+
+  <script>
+    const output = document.getElementById("output");
+    const keys = document.querySelectorAll(".key");
+
+    keys.forEach(key => {
+      key.addEventListener("click", () => {
+        const clone = key.cloneNode();
+        clone.style.width = "40px";
+        clone.style.height = "40px";
+        output.appendChild(clone);
+      });
+    });
+
+    function clearOutput() {
+      output.innerHTML = "";
+    }
+
+    function copyOutput() {
+      alert("Visual symbols copied. To save, screenshot or export as image.");
+    }
+  </script>
+</body>
+</html>
